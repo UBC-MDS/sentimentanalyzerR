@@ -31,3 +31,28 @@ You can install the development version of sentimentanalyzerR from [GitHub](http
 # install.packages("devtools")
 devtools::install_github("UBC-MDS/sentimentanalyzerR")
 ```
+
+## Usage
+
+This package provides the following 4 functions:
+
+generate_wordcloud - Create a wordcloud of the most common positive and negative words. get_aggregated_sentiment_score - Calculates the overall sentiment score of the input texts. likert_scale - Converts the sentiment score to a likert scale ranging from 1-5. sentiment_score_plot - Creates a binned histogram showing count of reviews against the sentiment score.
+
+In general, the functions will take a data frame and a column name as parameters.
+
+## Similar Packages
+
+While there exists many packages and libraries for sentiment analysis and many projects built on top of those packages, we could not find specific packages that combines the use of sentiment analysis with visualizations. However, we expect there to be many projects done by individuals that likely perform similar functions by making use of existing NLP packages. Our package aims enhance the existing NLP packages by providing a quick and simple way to generate summary visualizations. Our package will be built upon the existing packages such as:
+
+-   [wordcloud](https://cran.r-project.org/web/packages/wordcloud/wordcloud.pdf)
+-   [tidytext](https://cran.r-project.org/web/packages/tidytext/vignettes/tidytext.html)
+
+## Contributing
+
+This package was created by Group 8 of the DSCI 524 course with members Eric Tsai, Ranjit Sundaramurthi, Tanmay Agarwal and Ziyi Chen. Nonetheless, we welcome suggestions and improvements. See below for further details.
+
+Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
+
+## License
+
+sentimentanalyzerR was created by Eric Tsai, Ranjit Sundaramurthi, Tanmay Agarwal and Ziyi Chen. It is licensed under the terms of the MIT license.
