@@ -1,12 +1,14 @@
 Package: sentimentanalyzerR
-Title: What the Package Does (One Line, Title Case)
+Title: Analyzes sentiment from text data 
 Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Authors@R:
+    c(person("Eric", "Tsai", , "first.last@example.com", role = c("aut", "cre")),
+      person("Ranjit", "Sundaramurthi", , "first.last@example.com", role = c("aut", "cre")),
+      person("Tanmay", "Agarwal", , "tanmayag97@gmail.com", role = c("aut", "cre")),
+      person("Ziyi", "Chen", , "first.last@example.com", role = c("aut", "cre")))
+Description: This package performs sentiment analysis on the given texts 
+  and summarizes information from the text.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
