@@ -15,7 +15,7 @@
 #' @examples
 #' val = likert_scale(df, "reviews")
 #' val2 = likert_scale(df, "text")
-likert_scale <- function(data, col){
+likert_scale <- function(df, col){
 
 
 }
