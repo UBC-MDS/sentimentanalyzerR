@@ -18,6 +18,8 @@ library(dplyr)  # needed for select function
 get_sentiment <- function(text) {
   value <- get_compound_score(text)
   
+
+
   if (value > 0) {
     return("positive")
   } else if (value < 0) {
@@ -46,6 +48,9 @@ get_compound_score <- function(text) {
   analysis <- analyzeSentiment(text)
   score <- analysis$SentimentQDAP
   
+  # If value Nan then make it 0 (neutral)
+  score[is.nan(score)] <- 0  
+  
   # Return the score
   return(score)
 }
@@ -65,9 +70,9 @@ get_compound_score <- function(text) {
 get_sentiment_and_score <- function(df, col) {
   
   # Converts the column to list and apply functions
-  list_col <- df |> select({{col}}) |> as.list()
-  compound_score <- lapply(list_col, get_compound_score)
-
+  list_col <- df |> select({{col}})
+  compound_score <- lapply(list_col[[1]], get_compound_score)
+  sentiment <- lapply(list_col[[1]], get_sentiment)
   
   # Convert results to dataframe
   compound_score_df <- as.data.frame(unlist(compound_score), nrow=length(compound_score), byrow=TRUE)
