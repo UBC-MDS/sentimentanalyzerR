@@ -1,8 +1,10 @@
 # Setup
 library(SentimentAnalysis)
 library(SnowballC)
+library(rlang)  # needed if using sym function
+library(dplyr)  # needed for select function
 
-# get_sentiment
+#' get_sentiment function
 #' Evaluates the type of sentiment from a given text
 #'
 #' @param text, Input text data as string 
@@ -12,22 +14,23 @@ library(SnowballC)
 #'
 #' @examples
 #' get_sentiment("This is great")
+#' >> positive
 get_sentiment <- function(text) {
   value <- get_compound_score(text)
   
   if (value > 0) {
-    return "positive"
+    return("positive")
   } else if (value < 0) {
-    return "negative"
+    return("negative")
   } else {
-    return "neutral"
+    return("neutral")
   }
     
 }
 
 
 
-# get_compound_score
+#' get_compound_score
 #' Calculates a compound sentiment score from text
 #'
 #' @param text, Input text data as string 
@@ -38,6 +41,7 @@ get_sentiment <- function(text) {
 #'
 #' @examples
 #' get_compound_score("This is great")
+#' >> 1
 get_compound_score <- function(text) {
   analysis <- analyzeSentiment(text)
   score <- analysis$SentimentQDAP
@@ -47,11 +51,11 @@ get_compound_score <- function(text) {
 }
 
 
-# get_sentiment_and_score
-#' Adds the sentiment and score from text to dataframe
+#' get_sentiment_and_score
+#' Adds the sentiment and score from text to data frame
 #'
 #' @param df, dataframe
-#' col, column name of the text column on which sentiment analysis is done  
+#' col, name of the text column on which sentiment analysis is done  
 #'
 #' @return A dataframe with numeric sentiment and its sentiment type added, 
 #' to the dataframe
@@ -60,9 +64,19 @@ get_compound_score <- function(text) {
 #' get_sentiment_and_score(df, col)
 get_sentiment_and_score <- function(df, col) {
   
-  list_col <- as.list(df$col) # Convert the column to list
-  df$compound_score <- lapply(list_col, get_compound_score)
-  df$sentiment <- lapply(list_col, get_sentiment)
+  # Converts the column to list and apply functions
+  list_col <- df |> select({{col}}) |> as.list()
+  compound_score <- lapply(list_col, get_compound_score)
+
+  
+  # Convert results to dataframe
+  compound_score_df <- as.data.frame(unlist(compound_score), nrow=length(compound_score), byrow=TRUE)
+  colnames(compound_score_df) <- "score"
+  
+  sentiment_df <- as.data.frame(unlist(sentiment),nrow=length(sentiment),byrow=TRUE)
+  colnames(sentiment_df) <- "sentiment"
+  
+  df <- cbind(df, compound_score_df, sentiment_df)
   
   return(df)
 }
