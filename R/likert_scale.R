@@ -22,18 +22,26 @@ likert_scale <- function(df, col){
   if (!(col %in% colnames(df))) {
     stop("Column does not exist in the data frame.")
   }
-  score <- aggregate_sentiment_score(df, col)
-  if (score >= -1 && score < -0.6) {
-    return(1)
-  } else if (score >= -0.6 && score < -0.2) {
-    return(2)
-  } else if (score >= -0.2 && score <= 0.2) {
-    return(3)
-  } else if (score >= 0.2 && score <= 0.6) {
-    return(4)
-  } else if (score > 0.6 && score <= 1) {
-    return(5)
-  } else {
-    stop("Aggregate score should be between -1 and 1.")
-  }
+  tryCatch(
+    expr = {
+      score <- aggregate_sentiment_score(df, col)
+      if (score >= -1 && score < -0.6) {
+        return(1)
+      } else if (score >= -0.6 && score < -0.2) {
+        return(2)
+      } else if (score >= -0.2 && score <= 0.2) {
+        return(3)
+      } else if (score >= 0.2 && score <= 0.6) {
+        return(4)
+      } else if (score > 0.6 && score <= 1) {
+        return(5)
+      } else {
+        stop("Aggregate score should be between -1 and 1.")
+      }
+    },
+    error = function(e) {
+      stop("COlumn provided is not in the data frame.")
+    }
+  )
+
 }

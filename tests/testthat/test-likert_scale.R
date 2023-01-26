@@ -7,5 +7,15 @@ test_that("Passing in a column name that is not in the data frame raises an erro
     a = c("a", "b", "c"),
     b = c(123, 456, 789)
   )
-  expect_error(likert_scale(test_df, "text"))
+  expect_error(likert_scale(test_df, not_existing_column))
+})
+
+test_that("Function should successfully return a value between 1-5.", {
+  test_df = data.frame(
+    txt = c(
+      "I love cats",
+      "I love dogs"
+    )
+  )
+  expect_true(likert_scale(test_df, txt) %in% c(1, 2, 3, 4, 5))
 })
