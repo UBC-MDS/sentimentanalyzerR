@@ -3,12 +3,15 @@ Title: Analyzes sentiment from text data
 Version: 0.0.0.9000
 Authors@R:
     c(person("Eric", "Tsai", , "first.last@example.com", role = c("aut", "cre")),
-      person("Ranjit", "Sundaramurthi", , "first.last@example.com", role = c("aut", "cre")),
-      person("Tanmay", "Agarwal", , "tanmayag97@gmail.com", role = c("aut", "cre")),
-      person("Ziyi", "Chen", , "first.last@example.com", role = c("aut", "cre")))
+      person("Ranjit", "Sundaramurthi", , "first.last@example.com", role = c("aut")),
+      person("Tanmay", "Agarwal", , "tanmayag97@gmail.com", role = c("aut")),
+      person("Ziyi", "Chen", , "first.last@example.com", role = c("aut")))
 Description: This package performs sentiment analysis on the given texts 
   and summarizes information from the text.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
