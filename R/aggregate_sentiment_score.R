@@ -7,7 +7,7 @@
 #' @param col, name of the column that contains the reviews
 #'
 #' @return float value between -1 to 1
-#'
+#' @export
 #' @examples
 #'
 #'score1 = aggregate_sentiment_score(df, "text")
