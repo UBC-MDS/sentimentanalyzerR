@@ -24,8 +24,6 @@ get_sentiment <- function(text) {
 
 }
 
-
-
 #' get_compound_score
 #' Calculates a compound sentiment score from text
 #'
@@ -50,7 +48,6 @@ get_compound_score <- function(text) {
   # Return the score
   return(score)
 }
-
 
 #' get_sentiment_and_score
 #' Adds the sentiment and score from text to data frame
