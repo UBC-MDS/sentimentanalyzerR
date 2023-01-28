@@ -15,4 +15,24 @@
 #'
 aggregate_sentiment_score <- function(df, col) {
 
+  if(!is.data.frame(df)) {
+    stop("First parameter should be a data frame")
+  }
+  if(!is.character(col)) {
+    stop("column name should be a string")
+  }
+  if(!(col %in% colnames(df))) {
+    stop("Second parameter col is not a column name in the dataframe")
+  }
+
+  data <- get_sentiment_and_score(df, col)
+  aggregated_score = (data$score)
+
+  return(aggregated_score)
+
 }
+
+
+
+
+
