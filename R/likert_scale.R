@@ -1,7 +1,7 @@
 #' Convert the sentiment scores to a likert scale from 1-5
 #'
 #' @param df, data frame containing the reviews
-#' @param col, name of the column that contains the reviews
+#' @param col, string name of the column that contains the reviews
 #'
 #' @return integer between 1-5
 #' 1 = very negative
@@ -15,33 +15,25 @@
 #' @examples
 #' val = likert_scale(df, "reviews")
 #' val2 = likert_scale(df, "text")
-likert_scale <- function(df, col){
+likert_scale <- function(df, col) {
   if (!is.data.frame(df)) {
     stop("First parameter should be a data frame.")
   }
   if (!(col %in% colnames(df))) {
     stop("Column does not exist in the data frame.")
   }
-  tryCatch(
-    expr = {
-      score <- aggregate_sentiment_score(df, col)
-      if (score >= -1 && score < -0.6) {
-        return(1)
-      } else if (score >= -0.6 && score < -0.2) {
-        return(2)
-      } else if (score >= -0.2 && score <= 0.2) {
-        return(3)
-      } else if (score >= 0.2 && score <= 0.6) {
-        return(4)
-      } else if (score > 0.6 && score <= 1) {
-        return(5)
-      } else {
-        stop("Aggregate score should be between -1 and 1.")
-      }
-    },
-    error = function(e) {
-      stop("COlumn provided is not in the data frame.")
-    }
-  )
-
+  score <- aggregate_sentiment_score(df, col)
+  if (score >= -1 && score < -0.6) {
+    return(1)
+  } else if (score >= -0.6 && score < -0.2) {
+    return(2)
+  } else if (score >= -0.2 && score <= 0.2) {
+    return(3)
+  } else if (score >= 0.2 && score <= 0.6) {
+    return(4)
+  } else if (score > 0.6 && score <= 1) {
+    return(5)
+  } else {
+    stop("Aggregate score should be between -1 and 1.")
+  }
 }
