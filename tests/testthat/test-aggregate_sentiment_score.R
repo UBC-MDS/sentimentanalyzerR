@@ -24,7 +24,7 @@ test_that("Function should successfully return a value between -1 to 1.", {
       "I love dogs"
     )
   )
-  expect_true(between(aggregate_sentiment_score(test_df, "txt"), -1, 1))
+  expect_true(dplyr::between(aggregate_sentiment_score(test_df, "txt"), -1, 1))
 })
 
 test_that("Function output should be a numeric value", {
