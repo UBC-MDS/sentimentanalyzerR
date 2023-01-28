@@ -12,25 +12,30 @@
 #'
 #' @examples
 #' imgs <- generate_wordcloud(df, "text")
-#' imgs[1] # positive
-#' imgs[2] # negative
-#' imgs[3] # neutral
+#'
+
+
 generate_wordcloud <- function(df, col){
   # validation
+  if (!(col %in% colnames(df))) {
+    stop("Column does not exist in the data frame.")
+  }
   if (!is.data.frame(df)) {
     stop("First parameter should be a data frame.")
   }
-  result_df <- df
+
+
+
   # TODO: uncomment when ready to integrate
-  # result_df <- get_sentiment_and_score({{df}},{{col}})
+  result_df <- get_sentiment_and_score(df, col)
 
   # for now we are assuming the following
   # assuming we get data.frame with 3 columns "text","score","sentiment"
-  result_df <- df
-  print(result_df)
+  #result_df <- df
+  #print(result_df)
   neg_df <- result_df |>
     filter(str_detect(sentiment, 'negative'))
-  print(neg_df)
+  #print(neg_df)
   pos_df <- result_df |>
     filter(str_detect(sentiment, 'positive'))
   neutral_df <- result_df |>
@@ -46,7 +51,7 @@ generate_wordcloud <- function(df, col){
   wordcloud_list <- list()
 
   for (message in messages) {
-    # Clear the text by converting it to lower case, removing punctuation, numbers, and commonly used words
+    # Clear the text by co_nverting it to lower case, removing punctuation, numbers, and commonly used words
     corpus = Corpus(VectorSource(message))
     corpus = tm_map(corpus, content_transformer(tolower))
     corpus = tm_map(corpus, removePunctuation)
@@ -61,9 +66,12 @@ generate_wordcloud <- function(df, col){
     wc_image <- wordcloud(names(word.freq), word.freq, scale = c(4,0.5),
                           min.freq = 20, max.words = 20,
                           colors = brewer.pal(8, "Dark2"))
-    append(wordcloud_list,wc_image)
+    #print(typeof(wc_image))
+    #print("Adding wordcloud to wordcloud_list")
+    wordcloud_list <- base::append(wordcloud_list,wc_image)
+    #print(wordcloud_list)
   }
 
-  # list(pos_image)
-  wordcloud_list
+  # return a list of 3 word cloud images
+  return(wordcloud_list)
 }
