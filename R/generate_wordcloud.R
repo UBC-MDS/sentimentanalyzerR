@@ -17,8 +17,8 @@
 
 generate_wordcloud <- function(df, col){
   # validation
-  if (is.null(col)) {
-    stop("Col cannot be NULL")
+  if (!(col %in% colnames(df))) {
+    stop("Column does not exist in the data frame.")
   }
   if (!is.data.frame(df)) {
     stop("First parameter should be a data frame.")
