@@ -17,5 +17,5 @@ test_that("Function should successfully return a value between 1-5.", {
       "I love dogs"
     )
   )
-  expect_true(likert_scale(test_df, txt) %in% c(1, 2, 3, 4, 5))
+  expect_true(likert_scale(test_df, "txt") %in% c(1, 2, 3, 4, 5))
 })
