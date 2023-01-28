@@ -41,8 +41,8 @@ get_sentiment <- function(text) {
 #' get_compound_score("This is great")
 #' get_compound_score("This is a neutral sentence")
 get_compound_score <- function(text) {
-  analysis <- SentimentAnalysis::analyzeSentiment(text)
-  score <- analysis$SentimentQDAP
+  analysis <- vader::get_vader(text)
+  score <- as.double(analysis["compound"])
   
   # If value Nan then make it 0 (neutral)
   score[is.nan(score)] <- 0  
