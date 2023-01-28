@@ -24,9 +24,6 @@ generate_wordcloud <- function(df, col){
     stop("First parameter should be a data frame.")
   }
 
-
-
-  # TODO: uncomment when ready to integrate
   result_df <- get_sentiment_and_score(df, col)
 
   # for now we are assuming the following
@@ -34,38 +31,38 @@ generate_wordcloud <- function(df, col){
   #result_df <- df
   #print(result_df)
   neg_df <- result_df |>
-    filter(str_detect(sentiment, 'negative'))
+    dplyr::filter(stringr::str_detect(sentiment, 'negative'))
   #print(neg_df)
   pos_df <- result_df |>
-    filter(str_detect(sentiment, 'positive'))
+    dplyr::filter(stringr::str_detect(sentiment, 'positive'))
   neutral_df <- result_df |>
-    filter(str_detect(sentiment, 'neutral'))
+    dplyr::filter(stringr::str_detect(sentiment, 'neutral'))
 
   # joining the text columns
-  negative_messages <- paste(as.list(neg_df$text),collapse = ' ')
-  positive_messages <- paste(as.list(pos_df$text),collapse = ' ')
-  neutral_messages <- paste(as.list(neutral_df$text),collapse = ' ')
+  negative_messages <- paste(as.list(neg_df$txt),collapse = ' ')
+  positive_messages <- paste(as.list(pos_df$txt),collapse = ' ')
+  neutral_messages <- paste(as.list(neutral_df$txt),collapse = ' ')
 
   # put the 3 messages in a list
   messages <- list(positive_messages,neutral_messages,negative_messages)
   wordcloud_list <- list()
 
   for (message in messages) {
-    # Clear the text by co_nverting it to lower case, removing punctuation, numbers, and commonly used words
-    corpus = Corpus(VectorSource(message))
-    corpus = tm_map(corpus, content_transformer(tolower))
-    corpus = tm_map(corpus, removePunctuation)
-    corpus = tm_map(corpus, removeNumbers)
-    corpus = tm_map(corpus, removeWords, c(stopwords("SMART"), "thy", "thou", "thee", "the", "and", "but"))
+    # Clear the text by converting it to lower case, removing punctuation, numbers, and commonly used words
+    corpus = tm::Corpus(tm::VectorSource(message))
+    corpus = tm::tm_map(corpus, tm::content_transformer(tolower))
+    corpus = tm::tm_map(corpus, tm::removePunctuation)
+    corpus = tm::tm_map(corpus, tm::removeNumbers)
+    corpus = tm::tm_map(corpus, tm::removeWords, c(tm::stopwords("SMART"), "thy", "thou", "thee", "the", "and", "but"))
 
     # Convert the result into an integer vector listing each word's frequenty (the words are in the names attribute)
-    tdm = TermDocumentMatrix(corpus, control = list(minWordLength = 1))
+    tdm = tm::TermDocumentMatrix(corpus, control = list(minWordLength = 1))
     word.freq = sort(rowSums(as.matrix(tdm)), decreasing = TRUE)
 
     # Draw the word cloud
-    wc_image <- wordcloud(names(word.freq), word.freq, scale = c(4,0.5),
+    wc_image <- wordcloud::wordcloud(names(word.freq), word.freq, scale = c(4,0.5),
                           min.freq = 20, max.words = 20,
-                          colors = brewer.pal(8, "Dark2"))
+                          colors = RColorBrewer::brewer.pal(8, "Dark2"))
     #print(typeof(wc_image))
     #print("Adding wordcloud to wordcloud_list")
     wordcloud_list <- base::append(wordcloud_list,wc_image)
