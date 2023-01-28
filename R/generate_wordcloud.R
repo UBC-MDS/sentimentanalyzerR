@@ -8,7 +8,6 @@
 #' A list of three images in the following order: postive, neutral, negative
 #' A word cloud instance that can be later plotted or saved as an image
 #'
-#' @export none
 #'
 #' @examples
 #' imgs <- generate_wordcloud(df, "text")
