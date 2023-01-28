@@ -26,7 +26,7 @@ aggregate_sentiment_score <- function(df, col) {
   }
 
   data <- get_sentiment_and_score(df, col)
-  aggregated_score = (data$score)
+  aggregated_score <- mean(data$score)
 
   return(aggregated_score)
 
