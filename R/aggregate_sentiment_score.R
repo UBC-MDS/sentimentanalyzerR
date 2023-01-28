@@ -7,21 +7,19 @@
 #' @param col, name of the column that contains the reviews
 #'
 #' @return float value between -1 to 1
+#'
 #' @export
+#'
 #' @examples
-#'
-#'score1 = aggregate_sentiment_score(df, "text")
-#'score2 = aggregate_sentiment_score(df, "review")
-#'
+#' score1 = aggregate_sentiment_score(df, "text")
+#' score2 = aggregate_sentiment_score(df, "review")
 aggregate_sentiment_score <- function(df, col) {
 
-  if(!is.data.frame(df)) {
-    stop("First parameter should be a data frame")
-  }
-  if(!is.character(col)) {
+
+  if (!is.character(col)) {
     stop("column name should be a string")
   }
-  if(!(col %in% colnames(df))) {
+  if (!(col %in% colnames(df))) {
     stop("Second parameter col is not a column name in the dataframe")
   }
 
