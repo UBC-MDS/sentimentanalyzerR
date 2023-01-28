@@ -1,9 +1,3 @@
-# Setup
-library(SentimentAnalysis)
-library(SnowballC)
-library(rlang)  # needed if using sym function
-library(dplyr)  # needed for select function
-
 #' get_sentiment function
 #' Evaluates the type of sentiment from a given text
 #'
@@ -11,14 +5,14 @@ library(dplyr)  # needed for select function
 #'
 #' @return The type of sentiment (positive, negative or neutral)
 #' as a character
+#' 
+#' @export get_sentiment
 #'
 #' @examples
 #' get_sentiment("This is great")
-#' >> positive
+#' get_sentiment("This is a neutral sentence")
 get_sentiment <- function(text) {
   value <- get_compound_score(text)
-  
-
 
   if (value > 0) {
     return("positive")
@@ -40,12 +34,14 @@ get_sentiment <- function(text) {
 #' @return A numeric sentiment score of the text, 
 #' ranges from -1 for negative
 #' 0 for neutral and 1 for positive
+#' 
+#' @export get_compound_score
 #'
 #' @examples
 #' get_compound_score("This is great")
-#' >> 1
+#' get_compound_score("This is a neutral sentence")
 get_compound_score <- function(text) {
-  analysis <- analyzeSentiment(text)
+  analysis <- SentimentAnalysis::analyzeSentiment(text)
   score <- analysis$SentimentQDAP
   
   # If value Nan then make it 0 (neutral)
@@ -65,12 +61,14 @@ get_compound_score <- function(text) {
 #' @return A dataframe with numeric sentiment and its sentiment type added, 
 #' to the dataframe
 #' 
+#' @export get_sentiment_and_score
+#' 
 #' @examples
 #' get_sentiment_and_score(df, col)
 get_sentiment_and_score <- function(df, col) {
   
   # Converts the column to list and apply functions
-  list_col <- df |> select({{col}})
+  list_col <- df |> dplyr::select({{col}})
   compound_score <- lapply(list_col[[1]], get_compound_score)
   sentiment <- lapply(list_col[[1]], get_sentiment)
   
