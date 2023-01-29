@@ -22,6 +22,7 @@ Generate the word cloud of the most common positive and negative words from a gi
 data frame and create a word cloud.
 }
 \examples{
+df =  data.frame(text = c("I love cats","I love dogs"))
 imgs <- generate_wordcloud(df, "text")
 
 }

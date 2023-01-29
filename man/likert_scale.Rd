@@ -23,6 +23,6 @@ integer between 1-5
 Convert the sentiment scores to a likert scale from 1-5
 }
 \examples{
-val = likert_scale(df, "reviews")
-val2 = likert_scale(df, "text")
+df =  data.frame(text = c("I love cats","I love dogs"))
+val = likert_scale(df, "text")
 }
