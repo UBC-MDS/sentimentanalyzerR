@@ -2,10 +2,7 @@
 % Please edit documentation in R/aggregate_sentiment_score.R
 \name{aggregate_sentiment_score}
 \alias{aggregate_sentiment_score}
-\title{Returns an aggregated compound score representing sentiment:
--1 (most extreme negative) and +1 (most extreme positive). The compound score
-is a normalized score calculated by summing the valence scores of each word
-in the lexicon.}
+\title{aggregate sentiment score}
 \usage{
 aggregate_sentiment_score(df, col)
 }

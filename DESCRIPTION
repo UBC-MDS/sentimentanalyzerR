@@ -2,10 +2,10 @@ Package: sentimentanalyzerR
 Title: Analyzes sentiment from text data 
 Version: 0.0.0.9000
 Authors@R:
-    c(person("Eric", "Tsai", , "first.last@example.com", role = c("aut", "cre")),
-      person("Ranjit", "Sundaramurthi", , "first.last@example.com", role = c("aut")),
+    c(person("Eric", "Tsai", , "eric.tsai1208@gmail.com", role = c("aut", "cre")),
+      person("Ranjit", "Sundaramurthi", , "ranjitprakash1986@gmail.com", role = c("aut")),
       person("Tanmay", "Agarwal", , "tanmayag97@gmail.com", role = c("aut")),
-      person("Ziyi", "Chen", , "first.last@example.com", role = c("aut")))
+      person("Ziyi", "Chen", , "chenziyi970930@gmail.com", role = c("aut")))
 Description: This package performs sentiment analysis on the given texts 
   and summarizes information from the text.
 License: MIT + file LICENSE

@@ -45,7 +45,7 @@ In general, the functions will take a data frame and a column name as parameters
 
 ## Similar Packages
 
-While there exists many packages and libraries for sentiment analysis and many projects built on top of those packages, we could not find specific packages that combines the use of sentiment analysis with visualizations. However, we expect there to be many projects done by individuals that likely perform similar functions by making use of existing NLP packages. Our package aims enhance the existing NLP packages by providing a quick and simple way to generate summary visualizations. Our package will be built upon the existing packages such as:
+While there exists many packages and libraries for sentiment analysis and many projects built on top of those packages, we could not find specific packages that combines the use of sentiment analysis with visualizations. However, we expect there to be many projects done by individuals that likely perform similar functions by making use of existing NLP packages. Our package aims enhance the existing NLP packages by providing a quick and simple way to generate summary visualizations. Our package will similar to the following existing packages:
 
 -   [wordcloud](https://cran.r-project.org/web/packages/wordcloud/wordcloud.pdf)
 -   [tidytext](https://cran.r-project.org/web/packages/tidytext/vignettes/tidytext.html)

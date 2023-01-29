@@ -2,7 +2,7 @@
 % Please edit documentation in R/likert_scale.R
 \name{likert_scale}
 \alias{likert_scale}
-\title{Convert the sentiment scores to a likert scale from 1-5}
+\title{likert scale}
 \usage{
 likert_scale(df, col)
 }
