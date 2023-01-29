@@ -2,8 +2,7 @@
 % Please edit documentation in R/generate_wordcloud.R
 \name{generate_wordcloud}
 \alias{generate_wordcloud}
-\title{Generate the word cloud of the most common positive and negative words from a given survey in the form of a
-data frame and create a word cloud.}
+\title{generate wordcloud}
 \usage{
 generate_wordcloud(df, col)
 }

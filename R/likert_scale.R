@@ -1,3 +1,5 @@
+#' likert scale
+#'
 #' Convert the sentiment scores to a likert scale from 1-5
 #'
 #' @param df, data frame containing the reviews

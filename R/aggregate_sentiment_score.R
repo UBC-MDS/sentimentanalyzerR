@@ -1,3 +1,5 @@
+#'  aggregate sentiment score
+#'
 #'  Returns an aggregated compound score representing sentiment:
 #' -1 (most extreme negative) and +1 (most extreme positive). The compound score
 #' is a normalized score calculated by summing the valence scores of each word
