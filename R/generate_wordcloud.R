@@ -11,6 +11,7 @@
 #' @export
 #'
 #' @examples
+#' df =  data.frame(text = c("I love cats","I love dogs"))
 #' imgs <- generate_wordcloud(df, "text")
 #'
 

@@ -11,8 +11,8 @@
 #' @export
 #'
 #' @examples
-#' score1 = aggregate_sentiment_score(df, "text")
-#' score2 = aggregate_sentiment_score(df, "review")
+#' df =  data.frame(text = c("I love cats","I love dogs"))
+#' score = aggregate_sentiment_score(df, "text")
 aggregate_sentiment_score <- function(df, col) {
 
 

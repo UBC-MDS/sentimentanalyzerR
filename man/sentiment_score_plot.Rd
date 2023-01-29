@@ -23,7 +23,6 @@ Provides the most frequent sentiment score and the
 corresponding percentage
 }
 \examples{
-plot1 <- sentiment_score_plot(df, "column_name")
-plot2 <- sentiment_score_plot(df, "reviews")
-
+df =  data.frame(text = c("I love cats","I love dogs"))
+plot1 <- sentiment_score_plot(df, "text")
 }

@@ -21,5 +21,6 @@ get_sentiment_and_score
 Adds the sentiment and score from text to data frame
 }
 \examples{
-get_sentiment_and_score(df, col)
+df =  data.frame(text = c("I love cats","I love dogs"))
+get_sentiment_and_score(df, "text")
 }

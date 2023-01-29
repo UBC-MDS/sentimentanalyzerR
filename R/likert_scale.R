@@ -13,8 +13,8 @@
 #' @export
 #'
 #' @examples
-#' val = likert_scale(df, "reviews")
-#' val2 = likert_scale(df, "text")
+#' df =  data.frame(text = c("I love cats","I love dogs"))
+#' val = likert_scale(df, "text")
 likert_scale <- function(df, col) {
   if (!is.data.frame(df)) {
     stop("First parameter should be a data frame.")
