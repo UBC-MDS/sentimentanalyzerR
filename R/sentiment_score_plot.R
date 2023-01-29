@@ -13,9 +13,8 @@
 #' @export sentiment_score_plot
 #'
 #' @examples
-#' plot1 <- sentiment_score_plot(df, "column_name")
-#' plot2 <- sentiment_score_plot(df, "reviews")
-#'
+#' df =  data.frame(text = c("I love cats","I love dogs"))
+#' plot1 <- sentiment_score_plot(df, "text")
 sentiment_score_plot <- function(df, col){
   if(!is.data.frame(df)) {
     stop("First parameter should be a data frame")

@@ -61,7 +61,8 @@ get_compound_score <- function(text) {
 #' @export get_sentiment_and_score
 #'
 #' @examples
-#' get_sentiment_and_score(df, col)
+#' df =  data.frame(text = c("I love cats","I love dogs"))
+#' get_sentiment_and_score(df, "text")
 get_sentiment_and_score <- function(df, col) {
 
   # Converts the column to list and apply functions
