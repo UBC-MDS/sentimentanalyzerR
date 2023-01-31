@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/UBC-MDS/sentimentanalyzerR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/UBC-MDS/sentimentanalyzerR/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/UBC-MDS/sentimentanalyzerR/actions/workflows/check_standard.yaml/badge.svg)](https://github.com/UBC-MDS/sentimentanalyzerR/actions/workflows/check_standard.yaml)
 
 <!-- badges: end -->
 
