@@ -6,7 +6,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/UBC-MDS/sentimentanalyzerR/actions/workflows/check_standard.yaml/badge.svg)](https://github.com/UBC-MDS/sentimentanalyzerR/actions/workflows/check_standard.yaml)
-
+[![Codecov test
+coverage](https://codecov.io/gh/UBC-MDS/sentimentanalyzerR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/UBC-MDS/sentimentanalyzerR?branch=main)
 <!-- badges: end -->
 
 This package performs sentiment analysis on the given texts and
