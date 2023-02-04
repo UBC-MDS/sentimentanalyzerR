@@ -42,7 +42,7 @@ This section provides a walk-through of the package functions. A sample dataset 
 
 `sentiment_score_plot` - Creates a binned histogram showing count of reviews against the sentiment score.
 
-`generate_wordcloud` - Creates wordcloud of the most common positive, negative and neutral words.
+`generate_wordcloud` - Creates wordcloud of the most common words.
 
 ### Use Case
 
@@ -77,26 +77,22 @@ likert_score <- likert_scale(df, "text")
 likert_score
 ```
 
-This returns a the overall score on the likert . The return value of 3 corresponds to the "Neutral" sentiment as per the Likert scale mentioned in the function documentation.
+This returns a the overall score on the likert scale. The return value of 3 corresponds to the "Neutral" sentiment as per the Likert scale mentioned in the function documentation.
 
 ### sentiment_score_plot
 
 While understanding the overall sentiment is essential, a more insightful representation can be obtained through a histogram depicting the most frequent sentiments seen in the corpus. Each count represents a unique document in the corpus. Thus the plot can communicate how many reviews fall in each range of sentiment scores.
 
 ```{r hist-plot, eval = TRUE, results='hide', mesage = FALSE, fig.keep='all'}
-hist_plot <- sentiment_score_plot(df, "text")
+sentiment_score_plot(df, "text")
 
 ```
 
-**TBD** - Scope available to alter code to show the the statement with insights.
-
-### generate_wordcloud () 
-
-### TBD - Decide if 1 or 3 wordclouds needed , only 1 currently, update desc
+### generate_wordcloud
 
 Visuals can be more powerful than numbers. We use the `generate_wordcloud` function to display the most frequent words in the entire corpus. This gives a deeper insight into the specific words in the corpus that contribute towards the sentiment.
 
 ```{r wordcloud-plot, eval = TRUE, results='hide', message = FALSE, fig.keep='all', fig.width=7, fig.height=4}
-wordcloud_plot <- generate_wordcloud(df, "text")
+generate_wordcloud(df, "text")
 
 ```

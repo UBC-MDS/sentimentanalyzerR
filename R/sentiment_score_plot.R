@@ -36,15 +36,5 @@ sentiment_score_plot <- function(df, col){
             xlim=c(-1,1),
             freq=TRUE)
 
-  max_counts <- max(h$counts)
-  min_counts <- min(h$counts)
-  max_percentage <- max_counts*100/length(data$score)
-
-  max_range_low <- h$breaks[match(c(max_counts),h$counts)]
-  max_range_upper <- h$breaks[match(c(max_counts),h$counts+1)]
-
-  paste0("The highest frequency ", max(h$counts), " of sentiment scores are in the range ",max_range_low," to ", max_range_upper," which forms ",max_percentage," % of samples in the dataset")
-
-  return(h)
 }
 
