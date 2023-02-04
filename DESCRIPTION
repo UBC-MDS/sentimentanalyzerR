@@ -27,3 +27,4 @@ Imports:
     vader,
     wordcloud
 VignetteBuilder: knitr
+URL: https://ubc-mds.github.io/sentimentanalyzerR/
