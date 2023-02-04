@@ -35,15 +35,17 @@ devtools::install_github("UBC-MDS/sentimentanalyzerR")
 
 ## Usage
 
+After installing, run `library(sentimentanalyzerR)` to load the functions.
+
 This package provides the following 4 functions:
 
--   `generate_wordcloud` - Create a wordcloud of the most common
+- `generate_wordcloud` - Create a wordcloud of the most common
     positive and negative words.
--   `get_aggregated_sentiment_score` - Calculates the overall sentiment
+- `get_aggregated_sentiment_score` - Calculates the overall sentiment
     score of the input texts.
--   `likert_scale` - Converts the sentiment score to a likert scale
+- `likert_scale` - Converts the sentiment score to a likert scale
     ranging from 1-5.
--   `sentiment_score_plot` - Creates a binned histogram showing count of
+- `sentiment_score_plot` - Creates a binned histogram showing count of
     reviews against the sentiment score.
 
 In general, the functions will take a data frame and a column name as
@@ -61,8 +63,8 @@ packages by providing a quick and simple way to generate summary
 visualizations. Our package will similar to the following existing
 packages:
 
--   [wordcloud](https://cran.r-project.org/web/packages/wordcloud/wordcloud.pdf)
--   [tidytext](https://cran.r-project.org/web/packages/tidytext/vignettes/tidytext.html)
+- [wordcloud](https://cran.r-project.org/web/packages/wordcloud/wordcloud.pdf)
+- [tidytext](https://cran.r-project.org/web/packages/tidytext/vignettes/tidytext.html)
 
 ## Contributing
 
